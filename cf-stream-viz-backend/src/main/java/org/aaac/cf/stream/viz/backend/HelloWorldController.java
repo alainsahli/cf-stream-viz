@@ -10,7 +10,7 @@ import static reactor.core.publisher.Mono.just;
 public class HelloWorldController {
 
     @RequestMapping("/greet")
-    public Mono<String> parallel() {
+    public Mono<String> greet() {
         return just("Hello World!");
     }
 
