@@ -2,18 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!!</title>
+    <title>CloudFoundry Stream Visualization</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body class="container-fluid" onload="invokeGreetingService('api/greet', 'greeting')">
 <h1 class="jumbotron" id="greeting"></h1>
 
-<div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="cpuLoad"></div>
-</div>
+<div id="appMetrics" style="width: 400px; height: 400px; margin: 0 auto"></div>
+<button class="btn btn-danger" onclick="consumeAppMetricsStreams('api/cpu-load', appMetricsChart)">Connect</button>
 
-<button class="btn btn-danger" onclick="consumeCpuLoadStream('api/cpu-load', 'cpuLoad')">Connect</button>
-
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
 <script src="index.js"></script>
+<script src="app-metrics.js"></script>
+<script>
+    window.appMetricsChart = initializeAppMetricsChart('appMetrics');
+</script>
 </body>
 </html>
