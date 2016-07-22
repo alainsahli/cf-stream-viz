@@ -5,8 +5,15 @@
     <title>Hello World!!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
-<body class="container-fluid" onload="invokeGreetingService('greeting')">
+<body class="container-fluid" onload="invokeGreetingService('api/greet', 'greeting')">
 <h1 class="jumbotron" id="greeting"></h1>
+
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="cpuLoad"></div>
+</div>
+
+<button class="btn btn-danger" onclick="consumeCpuLoadStream('api/cpu-load', 'cpuLoad')">Connect</button>
+
 <script src="index.js"></script>
 </body>
 </html>
