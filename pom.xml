@@ -18,6 +18,7 @@
     <modules>
         <module>cf-stream-viz-backend</module>
         <module>cf-stream-viz-frontend</module>
+        <module>cf-stream-viz-storm</module>
     </modules>
 
     <properties>
