@@ -16,7 +16,7 @@
             <li>
                 <form class="navbar-form" action="#">
                     <button class="btn btn-danger"
-                            onclick="consumeAppMetricsStreams('api/cpu-load', appMetricsChart)">
+                            onclick="consumeCpuLoadStream('api/cpu-load', cpuLoadChart); consumeMemoryUsageStream('api/memory-usage', memoryUsageChart)">
                         Connect
                     </button>
                 </form>
@@ -26,15 +26,26 @@
 </nav>
 
 <div class="container-fluid">
-    <div id="appMetrics" style="width: 400px; height: 400px; margin: 0 auto"></div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <div id="cpuLoadChart" style="width: 400px; height: 400px; margin: 0 auto"></div>
+        </div>
+        <div class="col-md-3">
+            <div id="memoryUsageChart" style="width: 400px; height: 400px; margin: 0 auto"></div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
 </div>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+
 <script src="app-metrics.js"></script>
 <script>
-    window.appMetricsChart = initializeAppMetricsChart('appMetrics');
+    window.cpuLoadChart = initializeCpuLoadChart('cpuLoadChart');
+    window.memoryUsageChart = initializeMemoryUsageChart('memoryUsageChart');
 </script>
 </body>
 </html>

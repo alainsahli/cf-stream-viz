@@ -1,4 +1,4 @@
-function initializeAppMetricsChart(elementId) {
+function initializeCpuLoadChart(elementId) {
     return Highcharts.chart(elementId, {
         chart: {
             type: 'solidgauge',
@@ -6,7 +6,7 @@ function initializeAppMetricsChart(elementId) {
         },
 
         title: {
-            text: 'App Metrics',
+            text: 'CPU Load',
             style: {
                 fontSize: '24px'
             }
@@ -19,11 +19,11 @@ function initializeAppMetricsChart(elementId) {
             style: {
                 fontSize: '16px'
             },
-            pointFormat: '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
-            positioner: function (labelWidth, labelHeight) {
+            pointFormat: '<span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
+            positioner: function (labelWidth) {
                 return {
                     x: 200 - labelWidth / 2,
-                    y: 180
+                    y: 205
                 };
             }
         },
@@ -32,16 +32,10 @@ function initializeAppMetricsChart(elementId) {
             startAngle: 0,
             endAngle: 360,
             background: [
-                { // Track for CPU Load
+                {
                     outerRadius: '112%',
                     innerRadius: '88%',
                     backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.3).get(),
-                    borderWidth: 0
-                },
-                { // Track for Memory
-                    outerRadius: '87%',
-                    innerRadius: '63%',
-                    backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0.3).get(),
                     borderWidth: 0
                 }
             ]
@@ -69,38 +63,82 @@ function initializeAppMetricsChart(elementId) {
             name: 'CPU Load',
             borderColor: Highcharts.getOptions().colors[0],
             data: createCpuLoadTrackData(0)
-        }, {
-            name: 'Memory',
-            borderColor: Highcharts.getOptions().colors[1],
+        }]
+    });
+}
+
+function initializeMemoryUsageChart(elementId) {
+    return Highcharts.chart(elementId, {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Memory Usage',
+            style: {
+                fontSize: '24px'
+            }
+        },
+        xAxis: {
+            categories: [''],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            max: 10 * 1024 * 1024,
+            title: {
+                text: ''
+            }
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            enabled: false
+        },
+        series: [{
+            name: 'Memory Usage',
             data: createMemoryTrackData(0)
         }]
     });
 }
 
-function consumeAppMetricsStreams(cpuLoadStreamUrl, appMetricsChart) {
+function consumeCpuLoadStream(cpuLoadStreamUrl, cpuLoadChart) {
     const eventSource = new EventSource(cpuLoadStreamUrl);
 
     eventSource.onmessage = (event) => {
         const cpuLoad = Math.ceil(event.data * 100);
 
-        appMetricsChart.series[0].setData(createCpuLoadTrackData(cpuLoad), false);
-        appMetricsChart.redraw();
+        cpuLoadChart.series[0].setData(createCpuLoadTrackData(cpuLoad), false);
+        cpuLoadChart.redraw();
+    };
+}
+
+function consumeMemoryUsageStream(memoryUsageStreamUrl, memoryUsageChart) {
+    const eventSource = new EventSource(memoryUsageStreamUrl);
+
+    eventSource.onmessage = (event) => {
+        const memoryUsage = parseInt(event.data);
+
+        memoryUsageChart.series[0].setData(createMemoryTrackData(memoryUsage), false);
+        memoryUsageChart.redraw();
     };
 }
 
 function createCpuLoadTrackData(value) {
-    return createTrackData(value, 0, '100%');
+    return [{
+        color: Highcharts.getOptions().colors[0],
+        radius: '100%',
+        innerRadius: '100%',
+        y: value
+    }];
 }
 
 function createMemoryTrackData(value) {
-    return createTrackData(value, 1, '75%');
-}
-
-function createTrackData(value, colorIndex, percentage) {
-    return [{
-        color: Highcharts.getOptions().colors[colorIndex],
-        radius: percentage,
-        innerRadius: percentage,
-        y: value
-    }];
+    return [value];
 }
