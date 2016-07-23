@@ -83,7 +83,7 @@ function consumeAppMetricsStreams(cpuLoadStreamUrl, appMetricsChart) {
     eventSource.onmessage = (event) => {
         const cpuLoad = Math.ceil(event.data * 100);
 
-        appMetricsChart.series[0].setData(createCpuLoadTrackData(cpuLoad));
+        appMetricsChart.series[0].setData(createCpuLoadTrackData(cpuLoad), false);
         appMetricsChart.redraw();
     };
 }
