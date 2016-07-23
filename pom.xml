@@ -19,6 +19,7 @@
         <module>cf-stream-viz-backend</module>
         <module>cf-stream-viz-frontend</module>
         <module>cf-stream-viz-storm</module>
+        <module>cf-stream-viz-nozzle</module>
     </modules>
 
     <properties>
@@ -29,7 +30,7 @@
         <reactor-io.version>0.5.0.BUILD-SNAPSHOT</reactor-io.version>
         <spring.version>5.0.0.BUILD-SNAPSHOT</spring.version>
         <spring-boot-starter-web-reactive.version>0.1.0.BUILD-SNAPSHOT</spring-boot-starter-web-reactive.version>
-        <storm.version>2.0.0-SNAPSHOT</storm.version>
+        <storm.version>1.0.1</storm.version>
     </properties>
 
     <dependencyManagement>
