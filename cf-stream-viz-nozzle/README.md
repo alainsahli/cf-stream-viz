@@ -19,4 +19,4 @@ Download and install kafka-firehose-nozzle (https://github.com/rakutentech/kafka
 `cf dev start`
 
 #### Start Firehose Nozzle 
-`kafka-firehose-nozzle -config ./src/main/config/kafka-firehose-nozzle.toml
+`kafka-firehose-nozzle -config ./src/main/config/kafka-firehose-nozzle.toml`
