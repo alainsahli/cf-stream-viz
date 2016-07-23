@@ -8,6 +8,13 @@ Download and install kafka-firehose-nozzle (https://github.com/rakutentech/kafka
 `brew update` 
 `brew install kafka`
 
+####Install UAAC Client 
+https://github.com/cloudfoundry/cf-uaac
+
+####Assign permissions to admin user 
+`uaac client update admin --authorities "clients.read password.write clients.secret clients.write uaa.admin scim.write scim.read doppler.firehose"`
+
+
 #Execution
 ####Start Zookeeper
 `zookeeper-server-start -daemon /usr/local/Cellar/kafka/0.10.0.0/libexec/config/zookeeper.properties`
