@@ -1,0 +1,35 @@
+# All data will be distributed to nozzle with same subscription ID.
+# https://github.com/cloudfoundry/loggregator#consuming-log-and-metric-data
+
+subscription_id = "kafka-firehose-nozzle"
+insecure_ssl_skip_verify=true
+
+[cf]
+# Endpoint where nozzle consumes logs
+doppler_address = "wss://doppler.local.pcfdev.io"
+
+# To access to the firehose and consume logs from there,
+# you need an access token for that.
+#
+# You can just set it at `token` property in this file.
+# Or you can provide uaa endpoint and username/password.
+# It automatically grants token before connecting.
+
+# Endpoint where nozzle fetches the access token
+# to read the firehose messages.
+uaa_address = "http://uaa.local.pcfdev.io"
+
+# username & password to fetch the firehose access token from pcfdev
+username = "admin"
+password = "admin-client-secret"
+
+[kafka]
+# The list of kafka brokers IP
+brokers = ["localhost:9092"]
+
+  # Topic kafka topic rule
+  # Each events are sent to the each topic on kafka
+  [kafka.topic]
+  log_message = "log"
+  log_message_fmt = "log-%s"
+  value_metric = "metric"
