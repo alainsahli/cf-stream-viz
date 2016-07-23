@@ -1,0 +1,22 @@
+{
+  "name": "cf-stream-viz-bot",
+  "version": "0.0.0",
+  "description": "Bot for the awesome CF stream visualization",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "author": "AAAC",
+  "license": "MIT",
+  "dependencies": {
+    "botbuilder": "^3.1.1",
+    "reify": "^0.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=6"
+  }
+}
