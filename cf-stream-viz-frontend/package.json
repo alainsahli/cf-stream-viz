@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Frontend for the awesome CF stream visualization",
   "scripts": {
+    "dev": "NODE_DEBUG=request nodemon src/index.js",
     "start": "node src/index.js"
   },
   "author": "AAAC",
@@ -11,6 +12,9 @@
     "express": "^4.14.0",
     "reify": "^0.3.6",
     "request": "^2.73.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
   },
   "private": true,
   "engines": {

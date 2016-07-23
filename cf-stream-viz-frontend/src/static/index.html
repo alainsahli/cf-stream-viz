@@ -5,16 +5,33 @@
     <title>CloudFoundry Stream Visualization</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
-<body class="container-fluid" onload="invokeGreetingService('api/greet', 'greeting')">
-<h1 class="jumbotron" id="greeting"></h1>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">CloudFoundry Stream Visualization</a>
+    </div>
 
-<div id="appMetrics" style="width: 400px; height: 400px; margin: 0 auto"></div>
-<button class="btn btn-danger" onclick="consumeAppMetricsStreams('api/cpu-load', appMetricsChart)">Connect</button>
+    <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <form class="navbar-form" action="#">
+                    <button class="btn btn-danger"
+                            onclick="consumeAppMetricsStreams('api/cpu-load', appMetricsChart)">
+                        Connect
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div id="appMetrics" style="width: 400px; height: 400px; margin: 0 auto"></div>
+</div>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
-<script src="index.js"></script>
 <script src="app-metrics.js"></script>
 <script>
     window.appMetricsChart = initializeAppMetricsChart('appMetrics');
