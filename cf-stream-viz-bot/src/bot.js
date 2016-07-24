@@ -13,7 +13,8 @@ export default function (connector) {
             /^(hello|hi|howdy|help)/i,
             [
                 'Available commands are:',
-                '  * *scale*     : scales an application up or down to a given number of instances.'
+                '  * *scale*     : scales an application up or down to a given number of instances.',
+                '  * *start*     : starts an application.'
             ].join('\n')
         )
         .luisRecognizer(recognizer.recognizerModelUrl);
