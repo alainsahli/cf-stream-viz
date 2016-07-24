@@ -1,5 +1,5 @@
 import botbuilder from 'botbuilder';
-import {asAction} from './util';
+import { asAction } from './util';
 
 export default function (bot, intents) {
     bot.dialog('/', intents);

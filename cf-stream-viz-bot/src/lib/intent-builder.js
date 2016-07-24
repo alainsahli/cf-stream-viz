@@ -1,5 +1,5 @@
 import botbuilder from 'botbuilder';
-import {asAction, asActions} from './util';
+import { asAction, asActions } from './util';
 
 export default function (intents = new botbuilder.IntentDialog()) {
     const builder = {

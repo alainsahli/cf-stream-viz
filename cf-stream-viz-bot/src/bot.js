@@ -1,6 +1,6 @@
 import botbuilder from 'botbuilder';
-import intentBuilder from './intent-builder';
-import dialogBuilder from './dialog-builder';
+import intentBuilder from './lib/intent-builder';
+import dialogBuilder from './lib/dialog-builder';
 
 export default function (connector) {
     const scaleUpDialogId = '/scale-up';
