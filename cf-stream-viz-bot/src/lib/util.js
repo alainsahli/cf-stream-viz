@@ -2,16 +2,16 @@ export function asAction(actionOrMessage) {
     return typeof actionOrMessage === 'string' ? session => session.send(actionOrMessage) : actionOrMessage;
 }
 
-export function asActions(messageOrAction, actions) {
-    const allActions = [];
+export function asActions(...actions) {
+    return actions
+        .reduce((allActions, action) => {
+            if (typeof action === 'string' || typeof action === 'function') {
+                allActions.push(asAction(action));
+            } else {
+                allActions.concat(action);
+            }
 
-    allActions.push(asAction(messageOrAction));
-
-    if (actions.length) {
-        allActions.concat(actions);
-    } else {
-        allActions.push(asAction(messageOrAction));
-    }
-
-    return allActions;
+            return allActions;
+        }, [])
+        .filter(action => !!action);
 }
