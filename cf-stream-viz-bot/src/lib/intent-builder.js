@@ -1,6 +1,6 @@
 import botBuilder from 'botbuilder';
 import actionDialogProcessor from './action-dialog-processor';
-import { asAction, asActions } from './util';
+import { asAction } from './util';
 
 export default function () {
     const factories = [];
@@ -19,11 +19,6 @@ export default function () {
         },
         simpleText(regex, actionOrMessage) {
             factories.push(intents => intents.matches(regex, asAction(actionOrMessage)));
-
-            return builder;
-        },
-        beginDialog(regex, dialogId, actionOrMessage) {
-            factories.push(intents => intents.matches(regex, asActions(session => session.beginDialog(dialogId), actionOrMessage)));
 
             return builder;
         },

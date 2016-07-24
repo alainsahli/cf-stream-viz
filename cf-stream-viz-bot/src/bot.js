@@ -1,6 +1,5 @@
 import botBuilder from 'botbuilder';
 import intentBuilder from './lib/intent-builder';
-import dialogBuilder from './lib/dialog-builder';
 import recognizer from './recognizer';
 
 export default function (connector) {
@@ -21,10 +20,9 @@ export default function (connector) {
 
     recognizer.intents.forEach(intent => intents.recognizerIntentDialog(intent));
 
-    dialogBuilder(
-        new botBuilder.UniversalBot(connector),
-        intents.build()
-    ).build();
+    new botBuilder
+        .UniversalBot(connector)
+        .dialog('/', intents.build());
 
     function greetOnceAction(session) {
         if (session.userData.greeted) {
