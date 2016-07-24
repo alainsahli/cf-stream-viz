@@ -5,7 +5,8 @@
   "scripts": {
     "dev:console": "nodemon src/index.js console",
     "dev:chat": "nodemon src/index.js chat",
-    "start": "node src/index.js chat"
+    "start": "node src/index.js chat",
+    "deploy:heroku": "cd .. && git subtree push --prefix cf-stream-viz-bot heroku master"
   },
   "author": "AAAC",
   "license": "MIT",
