@@ -5,18 +5,18 @@ import recognizer from './recognizer';
 
 export default function (connector) {
     const helpHintMessage = 'Say what? Type "help" if you need...';
+    const helpMessage = recognizer.intents
+        .reduce((helpMessage, intent) => {
+            helpMessage.push(`  * ${intent.help}`);
+
+            return helpMessage;
+        }, ['Available commands are:'])
+        .join('\n');
 
     const intents = intentBuilder()
         .begin(greetOnceAction)
         .default(helpHintMessage)
-        .simpleText(
-            /^(hello|hi|howdy|help)/i,
-            [
-                'Available commands are:',
-                '  * *scale*     : scales an application up or down to a given number of instances.',
-                '  * *start*     : starts an application.'
-            ].join('\n')
-        )
+        .simpleText(/^(hello|hi|howdy|help)/i, helpMessage)
         .luisRecognizer(recognizer.recognizerModelUrl);
 
     recognizer.intents.forEach(intent => intents.recognizerIntentDialog(intent));

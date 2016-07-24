@@ -18,6 +18,7 @@ export default {
                 application: applicationType,
                 instances: instancesType
             },
+            help: '*scale*: scales an application up or down to a given number of instances.',
             actionDispatcher(action, session) {
                 if (action.application && action.instances && action.instances >= 0) {
                     session.send(`Application '${action.application}' scaled to ${action.instances} instances.`);
@@ -31,6 +32,7 @@ export default {
             actionModel: {
                 application: applicationType
             },
+            help: '*start*: starts an application.',
             actionDispatcher(action, session) {
                 if (action.application) {
                     session.send(`Application '${action.application}' starting...`);
