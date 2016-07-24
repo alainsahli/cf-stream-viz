@@ -1,5 +1,7 @@
+import botbuilder from 'botbuilder';
+
 export function asAction(actionOrMessage) {
-    return typeof actionOrMessage === 'string' ? session => session.send(actionOrMessage) : actionOrMessage;
+    return typeof actionOrMessage === 'string' ? botbuilder.DialogAction.send(actionOrMessage) : actionOrMessage;
 }
 
 export function asActions(...actions) {
