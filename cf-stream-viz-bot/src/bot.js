@@ -5,11 +5,12 @@ import dialogBuilder from './lib/dialog-builder';
 export default function (connector) {
     const scaleUpDialogId = '/scale-up';
     const scaleDownDialogId = '/scale-down';
+    const helpHintMessage = 'Say what? Type "help" if you need...';
     const bot = new botbuilder.UniversalBot(connector);
 
     const intents = intentBuilder()
-        .begin('Hi, here is Cloud Foundry Bot! Type "help" and I will show you what I can do.')
-        .default('Say what? Type "help" if you need...')
+        .begin(greetOnce)
+        .default(helpHintMessage)
         .simpleText(
             /^(hello|hi|howdy|help)/i,
             [
@@ -40,4 +41,13 @@ export default function (connector) {
             }
         )
         .build();
+
+    function greetOnce(session) {
+        if (session.userData.greeted) {
+            session.send(helpHintMessage);
+        } else {
+            session.send('Hi, here is Cloud Foundry Bot! Type "help" and I will show you what I can do.');
+            session.userData.greeted = true;
+        }
+    }
 }
