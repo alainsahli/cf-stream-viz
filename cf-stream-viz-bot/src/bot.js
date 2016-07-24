@@ -26,7 +26,7 @@ export default function (connector) {
             'How many instances you want?',
             (session, results) => {
                 session.send(`Scaling to ${results.response} instances...`);
-                session.endDialog()
+                session.endDialog();
             }
         )
         .build();
