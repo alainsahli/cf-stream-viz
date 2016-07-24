@@ -1,4 +1,5 @@
-import botbuilder from 'botbuilder';
+import botBuilder from 'botbuilder';
+import actionDialogProcessor from './action-dialog-processor';
 import { asAction, asActions } from './util';
 
 export default function () {
@@ -26,18 +27,18 @@ export default function () {
 
             return builder;
         },
-        luisDialog(modelUrl) {
-            recognizers.push(new botbuilder.LuisRecognizer(modelUrl));
+        luisRecognizer(modelUrl) {
+            recognizers.push(new botBuilder.LuisRecognizer(modelUrl));
 
             return builder;
         },
-        action(actionId, steps) {
-            factories.push(intents => intents.matches(actionId, steps));
+        recognizerIntentDialog(intent) {
+            factories.push(intents => intents.matches(intent.id, actionDialogProcessor(intent.actionModel, intent.actionDispatcher)));
 
             return builder;
         },
         build() {
-            const intents = new botbuilder.IntentDialog({recognizers});
+            const intents = new botBuilder.IntentDialog({recognizers});
 
             factories.forEach(factory => factory(intents));
 

@@ -1,4 +1,4 @@
-import botbuilder from 'botbuilder';
+import botBuilder from 'botbuilder';
 import { asAction } from './util';
 
 export default function (bot, intents) {
@@ -7,7 +7,7 @@ export default function (bot, intents) {
     const builder = {
         withNumber(dialogId, promptMessage, actionOrMessage) {
             bot.dialog(dialogId, [
-                session => botbuilder.Prompts.number(session, promptMessage),
+                session => botBuilder.Prompts.number(session, promptMessage),
                 asAction(actionOrMessage)
             ]);
 

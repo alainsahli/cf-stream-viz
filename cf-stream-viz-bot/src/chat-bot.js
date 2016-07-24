@@ -1,10 +1,10 @@
-import builder from 'botbuilder';
+import botBuilder from 'botbuilder';
 import restify from 'restify';
 import bot from './bot';
 
 const PORT = process.env.port || process.env.PORT || 3978;
 
-const connector = new builder.ChatConnector({
+const connector = new botBuilder.ChatConnector({
     appId: process.env.MICROSOFT_APP_ID,
     appPassword: process.env.MICROSOFT_APP_PASSWORD
 });

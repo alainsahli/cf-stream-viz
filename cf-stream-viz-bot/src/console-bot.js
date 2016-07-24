@@ -1,4 +1,4 @@
-import builder from 'botbuilder';
+import botBuilder from 'botbuilder';
 import bot from './bot';
 
-bot(new builder.ConsoleConnector().listen());
+bot(new botBuilder.ConsoleConnector().listen());
