@@ -3,14 +3,16 @@
   "version": "0.0.0",
   "description": "Bot for the awesome CF stream visualization",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "dev:console": "nodemon src/index.js console",
+    "dev:chat": "nodemon src/index.js chat",
+    "start": "node src/index.js chat"
   },
   "author": "AAAC",
   "license": "MIT",
   "dependencies": {
     "botbuilder": "^3.1.1",
-    "reify": "^0.3.6"
+    "reify": "^0.3.6",
+    "restify": "^4.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.9.2"
