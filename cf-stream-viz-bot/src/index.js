@@ -1,7 +1,8 @@
-require('reify');
+import { chatBotFactory, consoleBotFactory } from 'minibot';
+import bot from './bot';
 
 if (process.argv[2] === 'chat') {
-    require('./chat-bot');
+    chatBotFactory(bot);
 } else {
-    require('./console-bot');
+    consoleBotFactory(bot);
 }
