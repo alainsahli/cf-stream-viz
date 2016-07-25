@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "Frontend for the awesome CF stream visualization",
   "scripts": {
-    "dev": "NODE_DEBUG=request nodemon src/index.js",
-    "start": "node src/index.js"
+    "dev": "NODE_DEBUG=request nodemon -r reify src/index.js",
+    "start": "node -r reify src/index.js"
   },
   "author": "AAAC",
   "license": "MIT",
