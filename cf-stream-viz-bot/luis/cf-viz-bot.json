@@ -1,0 +1,379 @@
+{
+  "luis_schema_version": "1.3.0",
+  "name": "cf-viz-bot",
+  "desc": "LUIS Model for CF Visualisation Bot",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "StartApplication"
+    },
+    {
+      "name": "ScaleApplication"
+    },
+    {
+      "name": "None"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Application"
+    }
+  ],
+  "composites": [],
+  "bing_entities": [
+    "number"
+  ],
+  "actions": [],
+  "model_features": [
+    {
+      "name": "Application Name",
+      "mode": true,
+      "words": "spring music,angry birds,firehose nozzle",
+      "activated": true
+    }
+  ],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "bitch!! scale app foo down",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "scale foo up",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "go all-in with spring music",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 5,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "reduce resources on application foo",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "foo needs more power!!",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 0,
+          "endPos": 0
+        }
+      ]
+    },
+    {
+      "text": "add more power to app foo",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "can you scale foo?",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "scale up firehose nozzle to 10 instances",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 2,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "hi bob, scale spring music up to 10 instances",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 4,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "give 3 more to foo",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "reduce instances on foo to 3",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "scale foo to 3 instances",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "babe? scale application foo up, please",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "scale down spring music",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 2,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "foo is eating up all the resources!!",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 0,
+          "endPos": 0
+        }
+      ]
+    },
+    {
+      "text": "scale foo down",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "go all in with foo",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "please, scale foo up",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "scale angry birds",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 1,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "start foo",
+      "intent": "StartApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "please, start spring-music",
+      "intent": "StartApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 3,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "bitch, start bar",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "scale up bar",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "start application bar",
+      "intent": "StartApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "start app foo",
+      "intent": "StartApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "start foo now",
+      "intent": "StartApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "scale up baz application",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "scale baz app",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "start app bar",
+      "intent": "StartApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "start angry birds",
+      "intent": "StartApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 1,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "scale spotify down",
+      "intent": "ScaleApplication",
+      "entities": [
+        {
+          "entity": "Application",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    }
+  ]
+}
